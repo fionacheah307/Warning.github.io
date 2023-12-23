@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>警告</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Poppins:wght@600;700&display=swap">
+</head>
+<body>
+    <div class="wrapper">
+        <i class="fa-regular fa-circle-question"></i>
+        <h2 class="question">本站聲明</h2>
+        <h3>本站資訊以及連結含有部分少兒不宜限制級内容且本網站已依内容分級規定處理限18歲以上及願意接受者方可進入</h3>
+    <div class="btn-group">
+        <button class="yes-btn">我已滿18歲 進入</button>
+        <button class="no-btn">我未滿18歲 離開</button>
+    </div>
+    </div>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #7d2ae8;
+        }
+
+        .wrapper{
+            position: relative;
+            width: 600px;
+            height: 100%;
+            background: #fff;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            i{
+                margin-top: 20px;
+                font-size: 6em;
+                color: #7d2ae8;
+                border: 5px solid transparent;
+                outline: 3px solid #7d2ae8;
+                border-radius: 50%;
+            }
+
+            h2{
+                font-size: 2em;
+                color: #7d2ae8 ;
+                margin: 15px 30px;
+            }
+
+            h3{
+                font-size: 1.2em;                color: #7d2ae8 ;
+                margin: 15px 50px;
+                color: red ;
+                text-align: center;
+            }
+        }
+
+        .btn-group{
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            margin: 15px;
+        }
+
+        button{
+            position: absolute;
+            width: 150px;
+            height: inherit;
+            color: #fff;
+            font-size: 1em;
+            border-radius: 30px;
+            border: 2px;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0 2px 4px gray;
+        }
+
+        button:nth-child(1){
+            margin-left: -200px;
+            background: #7d2ae8;
+        }
+
+        button:nth-child(2){
+            margin-right: -200px;
+            color: #7d2ae8;
+        }
+
+        @media (max-width: 940px) {
+        .wrapper {
+        width: 90%; /* Adjusted width for smaller screens */
+        }}
+   
+    </style>
+
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        const question = document.querySelector('.question');
+        const yesBtn = document.querySelector('.yes-btn');
+        const noBtn = document.querySelector('.no-btn');
+
+        const WrapperRect = wrapper.getBoundingClientRect();
+        const yesBtnRect = yesBtn.getBoundingClientRect(); // Fix: Change 'noBtn' to 'yesBtn'
+
+yesBtn.addEventListener('mouseover', () => { // Fix: Remove extra parenthesis
+    const i = Math.floor(Math.random() * (WrapperRect.width - yesBtnRect.width)) + 1;
+    const j = Math.floor(Math.random() * (WrapperRect.height - yesBtnRect.height)) + 1; // Fix: Change 'yesBtnRect.width' to 'yesBtnRect.height'
+
+    yesBtn.style.left = i + 'px';
+    yesBtn.style.top = j + 'px';
+});
+
+noBtn.addEventListener('click', () => { // Fix: Remove extra parenthesis
+    question.innerHTML = '未成年還給我來看啊，去給我看微積分';
+});
+
+    </script>
+</body>
+</html>
